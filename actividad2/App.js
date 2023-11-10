@@ -5,6 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import HomeScreen from './screens/HomeScreen';
 import EventosScreen from './screens/EventosScreen';
+import DetalleEventoScreen from './screens/DetalleEventoScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 export default function App() {
@@ -23,6 +24,13 @@ export default function App() {
           tabBarLabel: 'Eventos',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="clipboard-list" color={color} size={26} />
+          ),
+        }} />
+        <Tab.Screen name="Detalle" component={DetalleEventoScreen}
+        options={{
+          tabBarLabel: 'Detalle',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="ticket" color={color} size={26} />
           ),
         }} />
       </Tab.Navigator>
