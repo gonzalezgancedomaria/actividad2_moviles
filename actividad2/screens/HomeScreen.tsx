@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { Button, View, Text, StyleSheet, TextInput } from 'react-native';
 import React,{useState} from 'react';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
 
     const [text, onChangeText] = useState('Dublin');
 
@@ -13,6 +13,11 @@ export default function HomeScreen() {
         style={styles.input}
         onChangeText={onChangeText}
         value={text}
+      />
+      <Button
+        title="Ver eventos"
+        onPress={() => navigation.navigate('Eventos')}
+        style={styles.button}
       />
     </View>
   )
@@ -36,6 +41,10 @@ const styles = StyleSheet.create({
     ciudad:{
         color: '#ae92ed'
     },
+    button:{
+      backgroundColor: '#ae92ed',
+      color: '#fff'
+    }, 
     input: {
         height: 40,
         width: 150,

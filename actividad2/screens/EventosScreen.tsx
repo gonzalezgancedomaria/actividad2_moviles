@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView,SafeAreaView, View} from 'react-native';
+import { Button, StyleSheet, Text, ScrollView,SafeAreaView, View} from 'react-native';
 
 
-export default function EventosScreen (){
+export default function EventosScreen ({navigation}){
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <ScrollView horizontal={true} style={styles.container}>
                 <View style={[styles.card,styles.cardOne]}><Text>Candlelight</Text></View>
                 <View style={[styles.card,styles.cardTwo]}><Text>Opera Concert</Text></View>
@@ -12,14 +12,15 @@ export default function EventosScreen (){
                 <View style={[styles.card,styles.cardOne]}><Text>Musical</Text></View>
                 <View style={[styles.card,styles.cardTwo]}><Text>Van Gogh Expo</Text></View>
             </ScrollView>
-        </View>
+            <Button title="Volver a Inicio" onPress={() => navigation.goBack()} style={styles.button}/>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         padding: 12,
         backgroundColor: '#06232c'
       },
@@ -44,5 +45,9 @@ const styles = StyleSheet.create({
     },
     cardThree: {
       backgroundColor: '#fdfd96'
-    }
+    },
+    button:{
+      backgroundColor: '#ae92ed',
+      color: '#fff'
+    }, 
 })
