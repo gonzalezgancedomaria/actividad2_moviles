@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
     const [text, onChangeText] = useState('Dublin');
 
     const handleFloatingButtonPress = () => {
-      navigation.navigate('Eventos');
+      console.log('Ir al formulario')
     };
 
   return (
