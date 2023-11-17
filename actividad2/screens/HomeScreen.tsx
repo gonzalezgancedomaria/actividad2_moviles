@@ -1,9 +1,15 @@
 import { Button, View, Text, StyleSheet, TextInput } from 'react-native';
 import React,{useState} from 'react';
 
+import FloatingButton from '../componentes/FloatingButton';
+
 export default function HomeScreen({ navigation }) {
 
     const [text, onChangeText] = useState('Dublin');
+
+    const handleFloatingButtonPress = () => {
+      navigation.navigate('Eventos');
+    };
 
   return (
     <View style={styles.container}>
@@ -19,6 +25,8 @@ export default function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate('Eventos')}
         style={styles.button}
       />
+
+      <FloatingButton onPress={handleFloatingButtonPress} />
     </View>
   )
 }
