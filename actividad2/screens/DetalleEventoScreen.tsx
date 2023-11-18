@@ -1,20 +1,25 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
+import {NativeStackScreenProps} from "@react-navigation/native-stack"
+import {RootStackPramList} from "../App"
 
-export default function DetalleEventoScreen() {
+
+type DetailsProps = NativeStackScreenProps<RootStackPramList, "Details">
+
+
+export default function DetalleEventoScreen({route}: DetailsProps) {
+    const {evento} = route.params;
   return (
     <View style={styles.container}>
-        <Text style={styles.headingText}> Evento </Text>
         <View style={[styles.card,styles.elevatedCard]}>
             <View style={styles.headingContainer}>
                 <Text style={styles.headerText}>
-                    Evento name
+                    {evento.name}
                 </Text>
             </View>
             <View style={styles.bodyContainer} >
                 <Text numberOfLines={4}>
-                    Como cada año, el evento se celebra en la Iglesia de St Patrick. Este año
-                    será un evento especial ya que acudiran los mayores artistas del pais.
+                    {evento.description}
                 </Text>
             </View>
             <View style={styles.bodyContainer} >
