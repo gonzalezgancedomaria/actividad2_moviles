@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import EventosScreen from "./screens/EventosScreen";
 import DetalleEventoScreen from "./screens/DetalleEventoScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { AnadirEventoScreen } from "./screens/AnadirEventoScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -19,7 +20,7 @@ export default function App() {
   return (
     <NavigationContainer styles={styles.container}>
       <Tab.Navigator>
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{
@@ -28,7 +29,7 @@ export default function App() {
               <MaterialCommunityIcons name="home" color={color} size={26} />
             ),
           }}
-        />
+        /> */}
         <Tab.Screen
           name="Eventos"
           component={EventosScreen}
@@ -53,7 +54,19 @@ export default function App() {
             ),
           }}
         />
+        <Tab.Screen
+          name="Add"
+          component={AnadirEventoScreen}
+          options={{
+            tabBarLabel: "Add",
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="bookmark-plus" color={color} size={26} />
+            ),
+          }}
+        />
       </Tab.Navigator>
+
+      
     </NavigationContainer>
   );
 }

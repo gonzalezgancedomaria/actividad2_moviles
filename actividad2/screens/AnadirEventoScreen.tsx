@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
-export const AnadirEventoScreen = () => {
-  const [nombre, setNombre] = useState('');
-  const [descripcion, setDescripcion] = useState('');
-  const [lugar, setLugar] = useState('');
-  const [fecha, setFecha] = useState('');
+export const AnadirEventoScreen = ({route,navigation}) => {
+  const [name, setNombre] = useState('');
+  const [description, setDescripcion] = useState('');
+  const [place, setLugar] = useState('');
+  const [price, setFecha] = useState('');
 
   const handleGuardar = () => {
-    console.log('Guardar evento:', nombre);
+    // navigation.setParams({
+    //   eventoToAdd: {
+    //     name:name,
+    //     description: description, 
+    //     place: place,
+    //     price: price
+    //   }
+    // });
+    navigation.navigate({
+      name: 'Eventos',
+      params: { eventoToAdd: {
+        name:name,
+        description: description, 
+        place: place,
+        price: price
+      }
+    },
+      merge: true,
+    });
+    console.log('Guardar evento:', name);
   };
 
   return (
@@ -16,34 +35,38 @@ export const AnadirEventoScreen = () => {
       <Text style={styles.label}>Nombre:</Text>
       <TextInput
         style={styles.input}
-        value={nombre}
+        value={name}
         onChangeText={setNombre}
         placeholder="Introduzca el nombre"
+        placeholderTextColor="white" 
       />
 
       <Text style={styles.label}>Descripción:</Text>
       <TextInput
         style={styles.input}
-        value={descripcion}
+        value={description}
         onChangeText={setDescripcion}
         placeholder="Introduzca la descripción"
         multiline={true}
+        placeholderTextColor="white" 
       />
 
       <Text style={styles.label}>Lugar:</Text>
       <TextInput
         style={styles.input}
-        value={lugar}
+        value={place}
         onChangeText={setLugar}
+        placeholderTextColor="white" 
         placeholder="Introduzca el lugar"
       />
 
-      <Text style={styles.label}>Fecha:</Text>
+      <Text style={styles.label}>Precio:</Text>
       <TextInput
         style={styles.input}
-        value={fecha}
+        value={price}
         onChangeText={setFecha}
-        placeholder="Seleccione la fecha"
+        placeholder="Seleccione el precio"
+        placeholderTextColor="white" 
         keyboardType="numeric" 
       />
 
@@ -64,11 +87,13 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 5,
+    color: 'white'
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'white',
     borderWidth: 1,
+    color: 'white',
     marginBottom: 15,
     paddingHorizontal: 10,
   },

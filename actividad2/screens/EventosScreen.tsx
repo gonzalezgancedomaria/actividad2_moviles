@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   StyleSheet,
@@ -12,8 +12,16 @@ import {
 import { EVENTS_LIST } from '../data/events'
 
 
-export default function EventosScreen({ navigation }) {
-  const [eventos, addEvento] = useState(EVENTS_LIST);
+export default function EventosScreen({ navigation, route }) {
+  const [eventos, setEvento] = useState(EVENTS_LIST);
+
+  useEffect(()=>{
+    if (route.params?.eventoToAdd) {
+      var eventoToAdd = route.params?.eventoToAdd;
+      eventoToAdd.id = eventos[eventos.length-1].id++;
+      setEvento(eventos.concat(route.params?.eventoToAdd))
+  }
+  }, [route.params?.eventoToAdd]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -30,11 +38,7 @@ export default function EventosScreen({ navigation }) {
 
           )}
         />
-        {/* <View style={[styles.card,styles.cardOne]}><Text>Candlelight</Text></View>
-                <View style={[styles.card,styles.cardTwo]}><Text>Opera Concert</Text></View>
-                <View style={[styles.card,styles.cardThree]}><Text>Escape Room</Text></View>
-                <View style={[styles.card,styles.cardOne]}><Text>Musical</Text></View>
-                <View style={[styles.card,styles.cardTwo]}><Text>Van Gogh Expo</Text></View> */}
+      
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={styles.button}
