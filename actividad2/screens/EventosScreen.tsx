@@ -9,42 +9,39 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import { EVENTS_LIST } from '../data/events'
-
+import { EVENTS_LIST } from "../data/events";
 
 export default function EventosScreen({ navigation, route }) {
   const [eventos, setEvento] = useState(EVENTS_LIST);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (route.params?.eventoToAdd) {
       var eventoToAdd = route.params?.eventoToAdd;
-      eventoToAdd.id = eventos[eventos.length-1].id++;
-      setEvento(eventos.concat(route.params?.eventoToAdd))
-  }
+      eventoToAdd.id = eventos[eventos.length - 1].id++;
+      setEvento(eventos.concat(route.params?.eventoToAdd));
+    }
   }, [route.params?.eventoToAdd]);
 
   return (
     <SafeAreaView style={styles.container}>
-        <FlatList
-          data={eventos}
-          // ItemSeparatorComponent={Separator}
-          renderItem={({ item }) => (
-            
-            <TouchableOpacity onPress={() => {
-              navigation.navigate('Detalle', {
-                evento: item
-              })
-            }} style={[styles.card,styles.cardTwo]}><Text>{item.name}</Text></TouchableOpacity>
+      <FlatList
+        data={eventos}
+        // ItemSeparatorComponent={Separator}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Detalle", {
+                evento: item,
+              });
+            }}
+            style={[styles.card, styles.cardTwo]}
+          >
+            <Text>{item.name}</Text>
+          </TouchableOpacity>
+        )}
+      />
 
-          )}
-        />
-      
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={styles.button}
-      >
-        <Text>Volver al inicio</Text>
-      </TouchableOpacity>
+      <Button title="Volver al inicio" onPress={() => navigation.goBack()} />
     </SafeAreaView>
   );
 }
