@@ -20,16 +20,13 @@ export default function App() {
   return (
     <NavigationContainer styles={styles.container}>
       <Tab.Navigator>
-        {/* <Tab.Screen
-          name="Home"
-          component={HomeScreen}
+        <Tab.Screen name="Home" component={HomeScreen} 
           options={{
-            tabBarLabel: "Home",
+            tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
             ),
-          }}
-        /> */}
+        }}/>
         <Tab.Screen
           name="Eventos"
           component={EventosScreen}
@@ -64,9 +61,7 @@ export default function App() {
             ),
           }}
         />
-      </Tab.Navigator>
-
-      
+      </Tab.Navigator>   
     </NavigationContainer>
   );
 }

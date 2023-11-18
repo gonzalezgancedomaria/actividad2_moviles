@@ -1,7 +1,8 @@
-import { Button, View, Text, StyleSheet, TextInput } from 'react-native';
+import { Button, View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
 import React,{useState} from 'react';
 
 import FloatingButton from '../componentes/FloatingButton';
+import EventosReviewScreen from './EventosReviewScreen';
 
 export default function HomeScreen({ navigation }) {
 
@@ -20,12 +21,12 @@ export default function HomeScreen({ navigation }) {
         onChangeText={onChangeText}
         value={text}
       />
+      <EventosReviewScreen></EventosReviewScreen>
       <Button
-        title="Ver eventos"
+        title="Ver más eventos"
         onPress={() => navigation.navigate('Eventos')}
         style={styles.button}
       />
-
       <FloatingButton onPress={handleFloatingButtonPress} />
     </View>
   )
