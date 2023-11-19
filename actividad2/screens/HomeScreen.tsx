@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
     const [text, onChangeText] = useState('Dublin');
 
     const handleFloatingButtonPress = () => {
-      console.log('Ir al formulario')
+      navigation.navigate('Add')
     };
 
   return (
