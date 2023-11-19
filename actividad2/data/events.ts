@@ -25,17 +25,17 @@ export const EVENTS_LIST: Evento[] = [
   },
   {
     id: 4,
-    name: "Musical",
+    name: "Project bercy",
     description:
-      "Un musical es una forma de expresión de arte escénico en el que la acción se desenvuelve con secciones cantadas y generalmente, bailadas",
-    place: "Mieres",
-    price: 40,
+      "Con el famoso cantante Henry Mendez disfrutaremos de una de las mejores fiestas de todo León.",
+    place: "Bercianos del Páramo",
+    price: 0,
   },
   {
     id: 5,
     name: "Van Gogh Expo",
     description:
-    "La exposición más completa y tecnológicamente avanzada hasta la fecha te invita a descubrir el mundo de van Gogh de una manera cautivadora y única.",
+      "La exposición más completa y tecnológicamente avanzada hasta la fecha te invita a descubrir el mundo de van Gogh de una manera cautivadora y única.",
     place: "Barcelona",
     price: 10,
   },
@@ -55,5 +55,52 @@ export const EVENTS_LIST: Evento[] = [
     place: "Pola Siero",
     price: 760,
   },
-  
+  {
+    id: 8,
+    name: "Petanca",
+    description:
+      "Clasico juego para gente de todas las edades, lo pasaremos de lujo!!",
+    place: "Bilbao",
+    price: 5,
+  },
+  {
+    id: 9,
+    name: "Autocine",
+    description:
+      "Las mejores peliculas serán proyectadas para poder verse desde el coche, bebida y palomitas gratis para todos los asistentes.",
+    place: "Madrid",
+    price: 10,
+  },
+  {
+    id: 10,
+    name: "Esquí",
+    description:
+      "Ven a esquiar con nosotros a una de las mejores estaciones de la peninsula.",
+    place: "Pajares",
+    price: 30,
+  },
+  {
+    id: 11,
+    name: "Gran paellada",
+    description:
+      "XV Gran paellada de mieres, para disfrutar en compañia de amigos y vecinos",
+    place: "Mieres",
+    price: 7,
+  },
+  {
+    id: 12,
+    name: "Musical",
+    description:
+      "Un musical es una forma de expresión de arte escénico en el que la acción se desenvuelve con secciones cantadas y generalmente, bailadas",
+    place: "Mieres",
+    price: 40,
+  },
+  {
+    id: 13,
+    name: "Patinaje sobre hielo",
+    description:
+        "Ven a patinar sobre hielo a la pista de hielo mas grande de Europa",
+    place: "Granada",
+    price: 4,
+  },
 ];

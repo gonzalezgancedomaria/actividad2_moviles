@@ -53,7 +53,11 @@ export default function EventosScreen({ navigation, route }) {
         )}
       />
 
-      <Button title="Volver al inicio" onPress={() => navigation.goBack()} />
+      <Button
+        color="#ae92ed"
+        title="Volver al inicio"
+        onPress={() => navigation.goBack()}
+      />
     </SafeAreaView>
   );
 }
@@ -77,6 +81,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 10,
     margin: 8,
+    marginTop: 15,
   },
   cardOne: {
     backgroundColor: "#fdcae1",

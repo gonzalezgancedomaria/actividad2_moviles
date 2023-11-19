@@ -23,6 +23,7 @@ export default function HomeScreen({ navigation }) {
       />
       <EventosReviewScreen></EventosReviewScreen>
       <Button
+        color="#ae92ed"
         title="Ver más eventos"
         onPress={() => navigation.navigate('Eventos')}
       />
