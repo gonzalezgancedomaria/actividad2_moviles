@@ -14,6 +14,8 @@ import { EVENTS_LIST } from "../data/events";
 export default function EventosScreen({ navigation, route }) {
   const [eventos, setEvento] = useState(EVENTS_LIST);
 
+  const colors = ["#fdcae1", "#84b6f4", "#fdfd96"];
+
   useEffect(() => {
     if (route.params?.eventoToAdd) {
       var eventoToAdd = route.params?.eventoToAdd;
@@ -25,16 +27,26 @@ export default function EventosScreen({ navigation, route }) {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+        numColumns={2}
         data={eventos}
-        // ItemSeparatorComponent={Separator}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("Detalle", {
                 evento: item,
               });
             }}
-            style={[styles.card, styles.cardTwo]}
+            style={[
+              styles.card,
+              { backgroundColor: colors[index % colors.length] },
+              index % 2 === 0
+                ? {
+                    marginRight: 30,
+                  }
+                : {
+                    marginLeft: 30,
+                  },
+            ]}
           >
             <Text>{item.name}</Text>
           </TouchableOpacity>
@@ -50,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    padding: 12,
+    padding: 30,
     backgroundColor: "#06232c",
   },
   tituloTexto: {

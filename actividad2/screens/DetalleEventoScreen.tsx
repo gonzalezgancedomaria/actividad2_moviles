@@ -6,7 +6,7 @@ import { RootStackPramList } from "../App";
 type DetailsProps = NativeStackScreenProps<RootStackPramList, "Details">;
 
 export default function DetalleEventoScreen({ route }: DetailsProps) {
-  const  evento  = route.params?.evento;
+  const evento = route.params?.evento;
   return (
     <View style={styles.container}>
       {evento == undefined ? (
@@ -20,11 +20,7 @@ export default function DetalleEventoScreen({ route }: DetailsProps) {
             <Text numberOfLines={4}>{evento.description}</Text>
           </View>
           <View style={styles.bodyContainer}>
-            {/* <TouchableOpacity
-                    onPress={() => Linking.openURL('https:cosasdigitales.com/articulos-diseno-web/es2021-es12-novedades-de-la-ultima-version-de-javascript/')}
-                >
-                    <Text style={styles.socialLinks}>Mas Info</Text>
-                </TouchableOpacity> */}
+            <Text style={styles.price}>Precio: {evento.price} €</Text>
           </View>
         </View>
       )}
@@ -39,14 +35,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  text:{
-    color: 'white'
+  text: {
+    color: "white",
   },
   headingText: {
     fontSize: 24,
     fontWeight: "bold",
     paddingHorizontal: 8,
     color: "#fff",
+  },
+  price: {
+    fontWeight: "bold"
   },
   card: {
     width: 350,

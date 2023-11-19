@@ -25,7 +25,6 @@ export default function HomeScreen({ navigation }) {
       <Button
         title="Ver más eventos"
         onPress={() => navigation.navigate('Eventos')}
-        style={styles.button}
       />
       <FloatingButton onPress={handleFloatingButtonPress} />
     </View>
@@ -50,10 +49,6 @@ const styles = StyleSheet.create({
     ciudad:{
         color: '#ae92ed'
     },
-    button:{
-      backgroundColor: '#ae92ed',
-      color: '#fff'
-    }, 
     input: {
         height: 40,
         width: 150,
