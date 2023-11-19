@@ -1,33 +1,32 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
-export const AnadirEventoScreen = ({route,navigation}) => {
-  const [name, setNombre] = useState('');
-  const [description, setDescripcion] = useState('');
-  const [place, setLugar] = useState('');
-  const [price, setFecha] = useState('');
+export const AnadirEventoScreen = ({ route, navigation }) => {
+  const [name, setNombre] = useState("");
+  const [description, setDescripcion] = useState("");
+  const [place, setLugar] = useState("");
+  const [price, setFecha] = useState("");
 
   const handleGuardar = () => {
-    // navigation.setParams({
-    //   eventoToAdd: {
-    //     name:name,
-    //     description: description, 
-    //     place: place,
-    //     price: price
-    //   }
-    // });
     navigation.navigate({
-      name: 'Eventos',
-      params: { eventoToAdd: {
-        name:name,
-        description: description, 
-        place: place,
-        price: price
-      }
-    },
+      name: "Eventos",
+      params: {
+        eventoToAdd: {
+          name: name,
+          description: description,
+          place: place,
+          price: price,
+        },
+      },
       merge: true,
     });
-    console.log('Guardar evento:', name);
+    console.log("Guardar evento:", name);
   };
 
   return (
@@ -38,7 +37,7 @@ export const AnadirEventoScreen = ({route,navigation}) => {
         value={name}
         onChangeText={setNombre}
         placeholder="Introduzca el nombre"
-        placeholderTextColor="white" 
+        placeholderTextColor="white"
       />
 
       <Text style={styles.label}>Descripción:</Text>
@@ -48,7 +47,7 @@ export const AnadirEventoScreen = ({route,navigation}) => {
         onChangeText={setDescripcion}
         placeholder="Introduzca la descripción"
         multiline={true}
-        placeholderTextColor="white" 
+        placeholderTextColor="white"
       />
 
       <Text style={styles.label}>Lugar:</Text>
@@ -56,7 +55,7 @@ export const AnadirEventoScreen = ({route,navigation}) => {
         style={styles.input}
         value={place}
         onChangeText={setLugar}
-        placeholderTextColor="white" 
+        placeholderTextColor="white"
         placeholder="Introduzca el lugar"
       />
 
@@ -66,8 +65,8 @@ export const AnadirEventoScreen = ({route,navigation}) => {
         value={price}
         onChangeText={setFecha}
         placeholder="Seleccione el precio"
-        placeholderTextColor="white" 
-        keyboardType="numeric" 
+        placeholderTextColor="white"
+        keyboardType="numeric"
       />
 
       <TouchableOpacity style={styles.button} onPress={handleGuardar}>
@@ -79,33 +78,33 @@ export const AnadirEventoScreen = ({route,navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#06232c',
+    backgroundColor: "#06232c",
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
   label: {
     fontSize: 16,
     marginBottom: 5,
-    color: 'white'
+    color: "white",
   },
   input: {
     height: 40,
-    borderColor: 'white',
+    borderColor: "white",
     borderWidth: 1,
-    color: 'white',
+    color: "white",
     marginBottom: 15,
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: '#ae92ed',
+    backgroundColor: "#ae92ed",
     padding: 10,
     borderRadius: 5,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

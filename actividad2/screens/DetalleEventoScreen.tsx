@@ -20,7 +20,7 @@ export default function DetalleEventoScreen({ route }: DetailsProps) {
             <Text numberOfLines={4}>{evento.description}</Text>
           </View>
           <View style={styles.bodyContainer}>
-          <Text style={styles.bold}>Lugar: {evento.place}</Text>
+            <Text style={styles.bold}>Lugar: {evento.place}</Text>
             <Text style={styles.bold}>Precio: {evento.price} €</Text>
           </View>
         </View>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   bold: {
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   card: {
     width: 350,

@@ -13,20 +13,23 @@ const Tab = createMaterialBottomTabNavigator();
 
 export type RootStackPramList = {
   Home: undefined;
-  Details: {evento: Evento}
-}
+  Details: { evento: Evento };
+};
 
 export default function App() {
   return (
-    <NavigationContainer styles={styles.container}>
+    <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} 
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
             ),
-        }}/>
+          }}
+        />
         <Tab.Screen
           name="Eventos"
           component={EventosScreen}
@@ -57,11 +60,15 @@ export default function App() {
           options={{
             tabBarLabel: "Add",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="bookmark-plus" color={color} size={26} />
+              <MaterialCommunityIcons
+                name="bookmark-plus"
+                color={color}
+                size={26}
+              />
             ),
           }}
         />
-      </Tab.Navigator>   
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
